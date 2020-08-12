@@ -30,7 +30,7 @@ public class PageTests extends BaseTest {
     }
 
     @Test
-    public void testHomePage() throws InterruptedException {
+    public void test() throws InterruptedException {
         scrollDown(500);
         homePage.fillFromBox(ConstantHomePage.FROM_INPUT_ID,"İstanbul (IST)");
         homePage.fillToBox(ConstantHomePage.TO_INPUT_ID,"Ankara");
