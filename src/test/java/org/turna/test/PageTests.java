@@ -26,7 +26,6 @@ public class PageTests extends BaseTest {
     public void before(){
         homePage = new HomePage(getWebDriver());
         getWebDriver().navigate().to("https://www.turna.com/");
-//        getWebDriver().navigate().to("https://www.turna.com/flight/istanbul-ankara-esenboga-airport/2020-08-12/2020-08-29");
         getWebDriver().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
     }
 
