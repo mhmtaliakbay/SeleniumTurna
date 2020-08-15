@@ -7,7 +7,6 @@ public interface ConstantReservationPage {
     By NAME_TEXT_FIELD_CSS = By.cssSelector("input.firstname");
     By SURNAME_TEXT_FIELD_CSS = By.cssSelector("input.lastname");
     By BIRTHDATE_DAY_CSS = By.cssSelector("select.day-of-birth");
-
     By BIRTHDATE_MONTH_CSS = By.cssSelector("select.month-of-birth");
     By BIRTHDATE_YEAR_CSS = By.cssSelector("select.year-of-birth");
     By NATIONALITY_SELECT_ID = By.id("passenger-nationality");

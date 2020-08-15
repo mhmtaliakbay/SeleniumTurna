@@ -1,12 +1,9 @@
 package org.turna.base;
-
 import org.junit.Before;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-
-import java.util.Arrays;
 
 public class BaseTest {
     WebDriver driver;
@@ -15,8 +12,6 @@ public class BaseTest {
     public void setup(){
         System.setProperty("webdriver.chrome.driver","properties/driver/chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
-        options.setExperimentalOption("excludeSwitches",
-                Arrays.asList("disable-popup-blocking"));
         options.addArguments("--disable-notifications");
         options.addArguments("start-maximized");
         options.addArguments("test-type");

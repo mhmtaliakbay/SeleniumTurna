@@ -16,52 +16,51 @@ public class BasePage {
     WebDriver driver;
     WebDriverWait wait;
 
-    public BasePage(WebDriver driver){
+    public BasePage(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver,10);
+        this.wait = new WebDriverWait(driver, 10);
 
     }
 
-    public WebElement findElement(By by){
+    public WebElement findElement(By by) {
         untilPresenceOfElementLocated(by);
         return driver.findElement(by);
     }
 
 
-    public void sendKeys(By by, String text){
+    public void sendKeys(By by, String text) {
         findElement(by).sendKeys(text);
     }
 
-    public void click(By by){
+    public void click(By by) {
 
         untilElementToBeClickable(by);
         findElement(by).click();
     }
 
-    public void doubleClickWithActionClass(By by){
+    public void doubleClickWithActionClass(By by) {
         untilElementToBeClickable(by);
-       new Actions(driver).doubleClick(findElement(by)).perform();
+        new Actions(driver).doubleClick(findElement(by)).perform();
     }
 
-    public void clickWithActionClass(By by){
+    public void clickWithActionClass(By by) {
         untilElementToBeClickable(by);
         new Actions(driver).moveToElement(findElement(by)).click().perform();
     }
 
-    public void clickWithJavascriptExecutor(By by){
+    public void clickWithJavascriptExecutor(By by) {
         untilElementToBeClickable(by);
-        JavascriptExecutor executor = (JavascriptExecutor)driver;
+        JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", by);
     }
 
 
-
-    public List<WebElement> findElements(By by){
+    public List<WebElement> findElements(By by) {
         untilPresenceOfAllElementsLocatedBy(by);
         return driver.findElements(by);
     }
 
-    public void clickRandomElement(By by){
+    public void clickRandomElement(By by) {
         untilElementToBeClickable(by);
         List<WebElement> elements = findElements(by);
         int size = elements.size();
@@ -69,22 +68,17 @@ public class BasePage {
         elements.get(random).click();
     }
 
-    public String getText(By by){
-        untilPresenceOfElementLocated(by);
-        return findElement(by).getText();
-    }
-
-    public void clickRadioButton(By by){
+    public void clickRadioButton(By by) {
         ((JavascriptExecutor) driver).executeScript("arguments[0].checked = true;", findElement(by));
     }
 
 
-    public void selectByVisibleText(By by,String visibleText){
+    public void selectByVisibleText(By by, String visibleText) {
         Select select = new Select(findElement(by));
         select.selectByVisibleText(visibleText);
     }
 
-    public void untilPresenceOfAllElementsLocatedBy(By by){
+    public void untilPresenceOfAllElementsLocatedBy(By by) {
         wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(by));
     }
 
@@ -92,12 +86,8 @@ public class BasePage {
         wait.until(ExpectedConditions.elementToBeClickable(by));
     }
 
-    public void untilPresenceOfElementLocated(By by){
+    public void untilPresenceOfElementLocated(By by) {
         wait.until(ExpectedConditions.presenceOfElementLocated(by));
-    }
-
-    private void untilInvisibilityOfElementLocated(By by){
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(by));
     }
 
 }
